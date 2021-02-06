@@ -3,7 +3,7 @@ import { Select, MenuItem, Checkbox, FormControl, FormControlLabel } from '@mate
 function Input(props) {
 
     //const { title } = props
-    const {setType} = props
+    const {setType, setHemisphere, hemisphere} = props
     const [state, setState] = useState({
         checkedBugs: true,
         checkedFish: true
@@ -13,25 +13,28 @@ function Input(props) {
         setState({ ...state, [event.target.name]: event.target.checked });
     };
 
+    const handleChangeHemisphere = (event) => {
+        setHemisphere(event.target.value);
+    };
+
     useEffect(() => {
         let {checkedFish, checkedBugs} = state
+        let type = -1
         if (checkedFish && !checkedBugs) {
-            setType(1)
+            type = 1
         }
         else if (!checkedFish && checkedBugs) {
-            setType(0)
+            type = 0
         }
         else if (!checkedFish && !checkedBugs) {
-            setType(null)
+            type = null
         }
-        else {
-            setType(-1)
-        }
+        setType(type)
     }, [state])
 
     return (
         <div>
-            <Select labelId="hemisphere" id="hemisphere" value="">
+            <Select labelId="hemisphere" id="hemisphere" value={hemisphere} onChange={handleChangeHemisphere} name="hemisphere">
                 <MenuItem value="north">Northern</MenuItem>
                 <MenuItem value="south">Southern</MenuItem>
             </Select>

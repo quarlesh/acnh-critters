@@ -1,15 +1,18 @@
 import React from 'react';
 import critters from './data.js'
 
-const getCritters = (type) => {
-  return critters.filter(critter => {return (type != null && (critter.type === type || type === -1))}).map(critter => {return {key: critter.id, data: critter}})
+const getCritters = (type, month, hemisphere) => {
+  return critters.filter(critter => {return (
+    type != null &&
+    (critter.type === type || type === -1) && 
+    critter["active_months"][0][hemisphere].includes(month)
+    )}).map(critter => {return {key: critter.id, data: critter}})
 }
 
 const Critters = (props) => {  
-  const { type } = props
-  const crittersList = getCritters(type)
-  console.log(props)
-  console.log(crittersList)
+  const { type, month, hemisphere } = props
+  const crittersList = getCritters(type, month, hemisphere)
+
   return (
     <div>
       {
