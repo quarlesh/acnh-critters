@@ -1,31 +1,22 @@
 import React from 'react';
 import critters from './data.js'
 
-function getFish() {
-    return critters.filter(function(critter) {
-      if (critter.type === 1) {
-        return critter
-      }
-    })
+const getCritters = (type) => {
+  return critters.filter(critter => {return (type != null && (critter.type === type || type === -1))}).map(critter => {return {key: critter.id, data: critter}})
 }
 
-function getBugs() {
-  return critters.filter(function(critter) {
-    if (critter.type === 0) {
-      return critter
-    }
-  })
-}
-
-
-function Critters() {  
+const Critters = (props) => {  
+  const { type } = props
+  const crittersList = getCritters(type)
+  console.log(props)
+  console.log(crittersList)
   return (
     <div>
       {
-        getFish().map(fish => {
-          return <p>{fish.name}</p>
-        }
-        )
+        crittersList.map(critter => {
+          let data = critter.data
+          return <p>{data.name}</p>
+        })
       }
     </div>
   );
