@@ -1,0 +1,14 @@
+{
+    "name": "ACNH Critterpedia",
+    "short_name": "ACNH Critterpedia",
+    "icons": [
+        {
+            "src": "/android-chrome-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#f5c449",
+    "background_color": "#f5c449",
+    "display": "standalone"
+}
