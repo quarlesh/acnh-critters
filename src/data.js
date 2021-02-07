@@ -2309,7 +2309,7 @@ const critters = [{
   "type": 0
 },
 {
-  "id": 154,
+  "id": 154, 
   "name": "Snail",
   "price": 250,
   "active_months": [
@@ -2318,7 +2318,7 @@ const critters = [{
       "south": [1,2,3,4,5,6,7,8,9,10,11,12]
     }
   ],
-  "location": "On Rocks and Bushes (rain)",
+  "location": "On Rocks and Bushes (raining)",
   "start_time": [-1],
   "end_time": [-1],
   "type": 0
