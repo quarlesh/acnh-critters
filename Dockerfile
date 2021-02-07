@@ -8,7 +8,7 @@ COPY . .
 RUN npm install --only=production
 # build for production
 RUN npm run build
-#RUN rm -r `ls | grep -v "build\|app.yaml"` && ls
+RUN rm -r `ls | grep -v "build\|app.yaml"`
 # expose port 8080 for our server to run on
 EXPOSE 8080
 # command to start our server
